@@ -8,11 +8,7 @@ const PROFILE = {
   name: "Akshit Srivastava",
   role: "AI Engineering & Research",
   experience: "Former Intern at RRSC North, ISRO",
-  website: "akshitsrivastava.vercel.app",
-  email: "akshit@example.com",
-  github: "akshitsri",
-  linkedin: "akshitsrivastava"
-};
+  website: "akshitsrivastava.vercel.app
 
 const App: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -25,19 +21,7 @@ const App: React.FC = () => {
     const timer = setTimeout(() => setIsDrawn(true), 500);
     
     // 2. Fetch AI pitch using the Gemini service
-    const fetchAIPitch = async () => {
-      const data = await generateProfessionalPitch({
-        ...PROFILE,
-        email: "akshit@example.com",
-        github: "akshitsri",
-        linkedin: "akshitsrivastava"
-      });
-      setAiData(data);
-    };
     
-    fetchAIPitch();
-    return () => clearTimeout(timer);
-  }, []);
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (isFlipped || !cardContainerRef.current) return;
@@ -174,25 +158,24 @@ const App: React.FC = () => {
                   <span className="text-[10px] uppercase tracking-[0.4em] font-black">AI Insights</span>
                 </div>
                 
-                {aiData ? (
-                  <div className="space-y-4">
-                    <p className="text-white font-medium text-lg md:text-xl leading-relaxed italic">
-                      "{aiData.pitch}"
-                    </p>
-                    <div className="flex flex-wrap justify-center gap-2">
-                      {aiData.keywords.map((kw, i) => (
-                        <span key={i} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[9px] text-blue-300 uppercase font-bold tracking-wider">
-                          {kw}
-                        </span>
-                      ))}
-                    </div>
+               <div className="space-y-4">
+                  <p className="text-white font-medium text-lg md:text-xl leading-relaxed">
+                    AI Engineer focused on applied research at the intersection of
+                    machine learning, computer vision, and space systems.
+                  </p>
+                
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {["AI Engineering", "Computer Vision", "Space Tech", "Research"].map((kw) => (
+                      <span
+                        key={kw}
+                        className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[9px] text-blue-300 uppercase font-bold tracking-wider"
+                      >
+                        {kw}
+                      </span>
+                    ))}
                   </div>
-                ) : (
-                  <div className="animate-pulse space-y-3 w-full">
-                    <div className="h-4 bg-white/5 rounded w-3/4 mx-auto"></div>
-                    <div className="h-4 bg-white/5 rounded w-1/2 mx-auto"></div>
-                  </div>
-                )}
+                </div>
+
               </div>
 
               <div className="flex justify-center gap-8 py-6 border-t border-white/5">
