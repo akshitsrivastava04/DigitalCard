@@ -46,14 +46,14 @@ const App: React.FC = () => {
   const resetRotation = () => setTouchPos({ x: 0, y: 0 });
 
   return (
-    <div className="fixed inset-0 flex flex-col items-center justify-center bg-white bg-dot-grid overflow-hidden">
+    <div className="min-h-[100dvh] w-full flex flex-col items-center justify-center bg-white bg-dot-grid overflow-hidden">
       {/* Background Decor */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[5%] left-[10%] w-96 h-96 bg-blue-50 rounded-full blur-[100px] opacity-60"></div>
         <div className="absolute bottom-[10%] right-[5%] w-96 h-96 bg-indigo-50 rounded-full blur-[120px] opacity-60"></div>
       </div>
 
-      <div className="relative w-full h-full flex items-center justify-center perspective-2000 px-6">
+      <div className="relative w-full h-full flex items-center justify-center md:perspective-2000 perspective-[1000px] px-6">
         
         {/* The Wallet (Recedes as card draws) */}
         <div 
@@ -114,7 +114,7 @@ const App: React.FC = () => {
                 </div>
 
                 {/* QR Code on Front */}
-                <div className="bg-white p-2.5 rounded-2xl shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-transform group-hover:scale-105">
+                <div className="bg-white p-2.5 rounded-2xl shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-transform md:group-hover:scale-105">
                   <QRCode 
                     value={`https://${PROFILE.website}`}
                     size={70}
@@ -141,7 +141,7 @@ const App: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="flex flex-col items-center gap-2 opacity-40 hover:opacity-100 transition-opacity">
+                <div className="flex flex-col items-center gap-2 opacity-40 md:hover:opacity-100 transition-opacity">
                   <RotateCw size={20} className="text-white animate-spin-slow" />
                   <span className="text-[8px] uppercase tracking-widest text-white/50 font-black">Flip Bio</span>
                 </div>
