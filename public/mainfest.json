@@ -1,0 +1,17 @@
+
+{
+  "name": "Akshit Srivastava | AI Card",
+  "short_name": "AI Card",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fdfdfd",
+  "theme_color": "#080809",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3665/3665923.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
