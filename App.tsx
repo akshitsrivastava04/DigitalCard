@@ -7,7 +7,6 @@ const PROFILE = {
   role: "AI Engineering & Research",
   experience: "Former Intern at RRSC North, ISRO",
   website: "akshitsrivastava.vercel.app",
-  email: "akshit0405@gmail.com",
   github: "akshitsrivastava04",
   linkedin: "akshitsrivastava"
 };
@@ -20,7 +19,7 @@ const App: React.FC = () => {
   const cardContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Define isMobile on mount
+    // Handle mobile detection and cleanup
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);
@@ -148,16 +147,16 @@ const App: React.FC = () => {
               <div className="flex-1 flex flex-col justify-center items-center text-center space-y-4 md:space-y-6">
                 <div className="flex items-center gap-2 text-blue-400">
                   <Sparkles size={16} />
-                  <span className="text-[8px] md:text-[10px] uppercase tracking-[0.4em] font-black">AI Insights</span>
+                  <span className="text-[8px] md:text-[10px] uppercase tracking-[0.4em] font-black">Developer Profile</span>
                 </div>
                 
                 <p className="text-white font-medium text-sm md:text-xl leading-relaxed">
                   AI Engineer focused on applied research at the intersection of
-                  ML, CV, and space systems.
+                  Machine Learning, Computer Vision, and Space Systems.
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-1.5">
-                  {["AI", "CV", "Space Tech", "Research"].map((kw) => (
+                  {["PyTorch", "OpenCV", "SpaceTech", "LLMs"].map((kw) => (
                     <span key={kw} className="px-2 py-0.5 bg-white/5 border border-white/10 rounded-full text-[8px] text-blue-300 uppercase font-bold">
                       {kw}
                     </span>
@@ -181,10 +180,10 @@ const App: React.FC = () => {
           onClick={() => window.open(`https://${PROFILE.website}`, '_blank')}
           className="flex items-center gap-3 px-6 py-3 bg-black text-white rounded-full text-xs font-bold uppercase tracking-widest shadow-xl border border-white/10 active:scale-95 transition-all"
         >
-          Explore Ecosystem <ArrowUpRight size={16} />
+          Explore Portfolio <ArrowUpRight size={16} />
         </button>
         <p className="text-[8px] uppercase tracking-[0.3em] font-black text-slate-400 text-center px-4">
-          Add to Home Screen for Offline Card • {new Date().getFullYear()}
+          Built for Akshit • {new Date().getFullYear()}
         </p>
       </div>
     </div>
