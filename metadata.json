@@ -1,0 +1,8 @@
+
+{
+  "name": "buildwithakshit - 3D AI Digital Business Card",
+  "description": "A futuristic, 3D interactive digital visiting card for Akshit Srivastava, featuring AI-powered bio generation and integrated QR code.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
