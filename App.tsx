@@ -21,11 +21,10 @@ const App: React.FC = () => {
   const cardContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // 1. Trigger the wallet slide-out
     const timer = setTimeout(() => setIsDrawn(true), 500);
-    
-    // 2. Fetch AI pitch using the Gemini service
-    
+    return () => clearTimeout(timer);
+  }, []);
+
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (isFlipped || !cardContainerRef.current) return;
