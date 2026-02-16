@@ -16,11 +16,20 @@ const App: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isDrawn, setIsDrawn] = useState(false);
   const [touchPos, setTouchPos] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
   const cardContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Define isMobile on mount
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     const timer = setTimeout(() => setIsDrawn(true), 500);
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
   const handleMove = (clientX: number, clientY: number) => {
@@ -41,9 +50,9 @@ const App: React.FC = () => {
         <div className="absolute bottom-[10%] right-[5%] w-64 md:w-96 h-64 md:h-96 bg-indigo-50 rounded-full blur-[100px] md:blur-[120px] opacity-60"></div>
       </div>
 
-      <div className="relative w-full max-w-md px-6 flex flex-col items-center justify-center perspective-[800px] md:perspective-[1500px]">
+      <div className="relative w-full max-w-md px-6 flex flex-col items-center justify-center perspective-[1000px]">
         
-        {/* Wallet Effect - Positioned relative to card container */}
+        {/* Wallet Effect */}
         <div 
           className={`absolute -bottom-20 w-[120%] h-64 leather-texture rounded-t-[3rem] border-t border-white/10 z-10 transition-transform duration-1000 ease-out pointer-events-none ${isDrawn ? 'translate-y-24' : 'translate-y-0'}`}
         >
@@ -157,9 +166,9 @@ const App: React.FC = () => {
               </div>
 
               <div className="flex justify-center gap-6 py-4 border-t border-white/5">
-                <a href={`https://github.com/${PROFILE.github}`} className="text-slate-400 hover:text-white"><Github size={18}/></a>
-                <a href={`https://linkedin.com/in/${PROFILE.linkedin}`} className="text-slate-400 hover:text-white"><Linkedin size={18}/></a>
-                <a href={`https://${PROFILE.website}`} className="text-slate-400 hover:text-white"><Globe size={18}/></a>
+                <a href={`https://github.com/${PROFILE.github}`} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white"><Github size={18}/></a>
+                <a href={`https://linkedin.com/in/${PROFILE.linkedin}`} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white"><Linkedin size={18}/></a>
+                <a href={`https://${PROFILE.website}`} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white"><Globe size={18}/></a>
               </div>
             </div>
           </div>
