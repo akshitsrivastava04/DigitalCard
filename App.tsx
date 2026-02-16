@@ -3,12 +3,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Cpu, Rocket, Shield, ArrowUpRight, RotateCw, Wallet, Sparkles, Github, Linkedin, Globe } from 'lucide-react';
 import QRCode from 'react-qr-code';
 
-
 const PROFILE = {
   name: "Akshit Srivastava",
   role: "AI Engineering & Research",
   experience: "Former Intern at RRSC North, ISRO",
-  website: "akshitsrivastava.vercel.app
+  website: "akshitsrivastava.vercel.app",
+  email: "akshit0405@gmail.com",
+  github: "akshitsrivastava04",
+  linkedin: "akshitsrivastava"
+};
+
 
 const App: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState(false);
