@@ -17,7 +17,6 @@ const PROFILE = {
 const App: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isDrawn, setIsDrawn] = useState(false);
-  const [aiData, setAiData] = useState<AIResponse | null>(null);
   const [touchPos, setTouchPos] = useState({ x: 0, y: 0 });
   const cardContainerRef = useRef<HTMLDivElement>(null);
 
