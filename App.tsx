@@ -13,6 +13,8 @@ const PROFILE = {
   linkedin: "akshitsrivastava"
 };
 
+const isMobile = window.innerWidth < 768;
+const ROTATION_INTENSITY = isMobile ? 12 : 30;
 
 const App: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -53,7 +55,7 @@ const App: React.FC = () => {
         <div className="absolute bottom-[10%] right-[5%] w-96 h-96 bg-indigo-50 rounded-full blur-[120px] opacity-60"></div>
       </div>
 
-      <div className="relative w-full h-full flex items-center justify-center md:perspective-2000 perspective-[1000px] px-6">
+      <div className="relative w-full h-full flex items-center justify-center perspective-[600px] sm:perspective-[1000px] md:perspective-2000">
         
         {/* The Wallet (Recedes as card draws) */}
         <div 
@@ -71,7 +73,7 @@ const App: React.FC = () => {
         {/* 3D Card */}
         <div 
           ref={cardContainerRef}
-          className={`relative z-20 w-full max-w-[440px] aspect-[1.586/1] transition-all duration-1000 cursor-pointer ${isDrawn ? 'animate-card-draw' : 'opacity-0'}`}
+          className={`relative z-20 w-full max-w-[360px] aspect-[1.586/1] transition-all duration-1000 cursor-pointer ${isDrawn ? 'animate-card-draw' : 'opacity-0'}`}
           onMouseMove={handleMouseMove}
           onMouseLeave={resetRotation}
           onTouchMove={handleTouchMove}
@@ -82,8 +84,9 @@ const App: React.FC = () => {
             className="relative w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] preserve-3d"
             style={{
               transform: `
-                rotateY(${isFlipped ? 180 : touchPos.x * 30}deg)
-                rotateX(${isFlipped ? 0 : -touchPos.y * 30}deg)
+                rotateY(${isFlipped ? 180 : touchPos.x * ROTATION_INTENSITY}deg)
+                rotateX(${isFlipped ? 0 : -touchPos.y * ROTATION_INTENSITY}deg)
+
               `
             }}
           >
@@ -117,7 +120,7 @@ const App: React.FC = () => {
                 <div className="bg-white p-2.5 rounded-2xl shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-transform md:group-hover:scale-105">
                   <QRCode 
                     value={`https://${PROFILE.website}`}
-                    size={70}
+                    size={window.innerWidth < 640 ? 56 : 70}
                     viewBox={`0 0 256 256`}
                     fgColor="#000000"
                     bgColor="#FFFFFF"
