@@ -2,8 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Cpu, Rocket, Shield, ArrowUpRight, RotateCw, Wallet, Sparkles, Github, Linkedin, Globe } from 'lucide-react';
 import QRCode from 'react-qr-code';
-import { generateProfessionalPitch } from './services/geminiService';
-import { AIResponse } from './types';
+
 
 const PROFILE = {
   name: "Akshit Srivastava",
